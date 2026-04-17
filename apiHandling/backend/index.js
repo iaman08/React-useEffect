@@ -4,7 +4,7 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.get('api/products', (req, res) => {
+app.get('/api/products', (req, res) => {
 
     const products = [
         {
@@ -25,7 +25,7 @@ app.get('api/products', (req, res) => {
     ]
 
     if(req.query.search){
-      const filterProducts =  products.filter(product => product.name.includes(req.query.search));
+      const filterProducts = products.filter(product => product.price === Number(req.query.search));
       res.send(filterProducts);
       return;
     }
